@@ -1,0 +1,86 @@
+			Assignment-1
+Q.1)
+show databases;
+
+
+Q.2)
+create table countries(
+country_id INT,
+country_name VARCHAR(50),
+region_id INT
+);
+
+desc countries;
+
+
+Q.3)
+create table jobs(
+job_id int primary key,
+job_title varchar(20) not null,
+min_salary int,
+max_salary int CHECK (max_salary <= 25000)
+);
+
+
+Q.4)
+create table job_history(
+employee_id int,
+start_date date,
+end_date date,
+job_id int,
+dept_id int
+);
+
+Q.5)
+alter table countries
+add constraint country_id UNIQUE (country_id);
+
+
+Q.6)
+CREATE TABLE jobs_default (
+job_id INT,
+job_title VARCHAR(20) DEFAULT '',
+min_salary INT DEFAULT 8000,
+max_salary INT DEFAULT NULL
+);
+
+Q.7)
+create table department(
+dept_id decimal(4,0) not null,
+dept_name varchar(20) not null,
+manager_id decimal(6,0) not null,
+location_id decimal(4,0) null,
+primary key(dept_id,manager_id)
+);
+
+Q.8)
+create table employees(
+employee_id int primary key,
+first_name varchar(50),
+last_name varchar(50),
+email varchar(100) ,
+phone_number varchar(20),
+hire_date date,
+job_id int,
+salary decimal(10,2),
+commission decimal(10,2),
+manager_id int,
+department_id int
+foreign key (department_id) references department(dept_id)
+);
+
+
+Q.9)
+create table department_managers (
+    department_id DECIMAL(4,0) NOT NULL,
+    manager_id DECIMAL(6,0) NOT NULL,
+    manager_name VARCHAR(50) NOT NULL,
+    PRIMARY KEY (department_id, manager_id)
+);
+
+ALTER TABLE employees
+ADD CONSTRAINT fk_emp_dept_manager
+FOREIGN KEY (department_id, manager_id)
+REFERENCES department_managers(department_id, manager_id);
+
+
