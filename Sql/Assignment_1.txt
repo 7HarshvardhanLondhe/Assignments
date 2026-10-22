@@ -1,4 +1,4 @@
-			Assignment-1
+					ASSIGNMENT-1
 Q.1)
 show databases;
 
@@ -17,7 +17,7 @@ Q.3)
 create table jobs(
 job_id int primary key,
 job_title varchar(20) not null,
-min_salary int,
+min_salary int
 max_salary int CHECK (max_salary <= 25000)
 );
 

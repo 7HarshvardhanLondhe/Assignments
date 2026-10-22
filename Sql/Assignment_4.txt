@@ -1,0 +1,117 @@
+					ASSIGNMENT-4
+
+Q.1
+select first_name as "First name",last_name as "Last name" 
+from employee;
+
+Q.2
+select department_id as "dept id"
+from employees;
+
+Q.3
+select * from employees
+order by first_name DESC;
+
+Q.4
+#output needs separate table using aliases
+
+select first_name,last_name,salary + (salary*0.15) as new_salary
+from employees;
+
+Q.5
+select employee_id,e.first_name,salary
+from employees as e
+order by salary ASC;
+
+Q.6
+select salary 
+from employees;
+
+Q.7
+select max(salary) as "highest salary" , min(salary) as 'lowest salary'
+from employees;
+
+Q.8
+select avg(salary) as 'avg salary' , count(employee_id) as 'employee count'
+from employees;
+
+Q.9
+select count(employee_id) as'total number of employees'
+from employees;
+
+Q.10
+#distinct count(job_id) -error
+
+select COUNT(DISTINCT job_id) as 'number of job roles'
+from employees;
+
+Q.11
+select * from employees
+limit 10;
+
+Q.12
+select first_name as "first name",salary as "salary"
+from employees
+where salary < 10000 OR salary > 15000;
+
+Q.13
+select first_name,department_id
+from employees
+where department_id in(30,100)
+order by department_id; 
+ans-empty set
+
+Q.14
+#use ONLY ONE where 
+#between not in(_ _)
+
+select first_name as "first name",salary as "salary"
+from employees
+where department_id in(60,80)
+and salary not between 10000 and 15000;
+
+Q.15
+#year=year(issue_date)
+
+select book_no,issue_date
+from lib_issue
+where year(issue_date)=2024;
+
+
+Q.16
+#write separate no order mandatory
+
+select first_name
+from employees
+where first_name like '%b%' and first_name like '%c%';
+
+
+Q.17
+select book_name,author_name,cost
+from books
+where category in('system','science') and cost > 450;
+
+Q.18
+select last_name from employees
+where last_name like '______';
+
+Q.19
+select last_name from employees
+where last_name like "%e__";
+
+Q.20
+#DISTINCT is a keyword modifier, not a function
+
+select distinct manager_id,category
+from employees;
+
+Q.21
+#use also last_name in(____);
+
+SELECT * FROM employees
+WHERE last_name = 'BLAKE'
+   OR last_name = 'SCOTT'
+   OR last_name = 'KING'
+   OR last_name = 'FORD';
+
+      

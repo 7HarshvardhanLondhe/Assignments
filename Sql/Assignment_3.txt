@@ -1,0 +1,88 @@
+					ASSIGNMENT-3
+
+Q.1
+create table Employees(
+employee_id int,
+first_name varchar(30),
+last_name varchar(30),
+job_id int,
+salary double(10,2),
+manager_id int,
+department_id int);
+
+insert into Employees(employee_id,first_name,last_name,job_id,salary,manager_id,department_id)
+values(100,'steven','king',1,24000.00,200,10),
+(101,'neena','kochhar',2,17000.00,200,10),
+(102,'lex','de haan',2,17000.00,200,10),
+(103,'alexander','hunold',3,9000.00,103,60),
+(104,'bruce','ernst',3,6000.00,103,60),
+(105,'david','austin',3,4800.00,103,60),
+(106,'valli','pataballa',3,4800.00,103,60),
+(107,'diana','lorentz',3,4200.00,114,30),
+(108,'nancy','greenberg',4,12000.00,145,80),
+(109,'daniel','faviet',4,9000.00,145,80);
+
+
+Q.2
+ insert into department values(10,'administration',200,1700),
+(20,'marketing',202,1800),
+(30,'purchasing',114,1700),
+(60,'it',103,1400),
+(80,'sales',145,2500);
+
+
+Q.3
+insert into jobs values(101,'developer',20000,40000);
+
+alter table jobs drop constraint jobs_chk_1;
+
+Q.4
+update jobs
+set min_salary = min_salary*0.10;
+
+Q.5
+#Don't put a condition in the SET clause.
+update employees
+set EMAIL='not available'
+where department_id=80
+and salary < 17000;
+
+ans-
+ERROR 1054 (42S22): Unknown column 'EMAIL' in 'field list'
+alter table employees
+add email varchar(100);
+
+Q.6
+update employees
+set email='not available'
+where department='Purchasing';
+
+ERROR 1054 (42S22): Unknown column 'department' in 'where clause'
+
+Q.7
+Not in table
+
+Q.8
+update employees
+set salary=salary+2000
+where department_id=60;
+
+Q.9
+delete from employees
+where salary < 5000;
+
+Q.10
+insert into employees(employee_id,first_name,last_name,job_id,salary,manager_id,department_id,email)values
+(110,'sam','juliet',4,9000.00,145,80,'abc@2151');
+
+
+Q.11
+update employees
+set manager_id=300
+where department_id=80;
+
+Q.12
+delete from employees
+where department_id=20;
+
+ans-emp not exists
