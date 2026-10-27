@@ -1,0 +1,54 @@
+					Assignment-6
+
+Q.1
+create view book_list as
+select book_no,book_name,author_name,cost,category
+from books;
+
+Q.2
+select * from book_list;
+
+Q.3
+create view issued_books as
+select lib_issue_id,book_no,issue_date,return_date
+from lib_issue
+where return_date is null;
+
+Q.4
+select * from issued_books;
+
+Q.5
+create view member_penalty as
+select member_id,member_name,penalty_amount
+from member
+where penalty_amount > 0;
+
+Q.6
+select * from member_penalty;
+
+Q.7
+update member_penalty
+set penalty_amount=70
+where member_id=6;
+
+Q.8
+#
+create view book_issue_details as
+select b.book_name,b.cost,i.issue_date,i.return_date
+from lib_issue i
+join books b on i.book_no=b.book_no;
+
+Q.9
+select * from book_issue_details;
+
+Q.10
+drop view issued_books;
+
+Q.11
+drop view memeber_penalty;
+
+show views// not possible
+
+Q.12
+drop view book_issue_details;
+

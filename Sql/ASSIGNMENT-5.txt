@@ -1,1 +1,119 @@
-								ASSIGNMENT-5
+			ASSIGNMENT-5
+
+Q.1
+select book_name from books
+where author_name='loni' AND cost < 600;
+
+Q.2
+select * from books
+where return_date is NULL;
+
+
+Q.3
+update lib_issue
+set return_date ='2025-12-31' where return_date is null and lib_issue_id not in(7005,7006);
+
+Q.4
+select * from lib_issue
+
+Q.5
+# is not with between like is between
+
+select * from books
+where cost between 500 and 700 AND category='Database';
+
+Q.6
+select * from books
+where category in('Science','Database','Fiction','Management');
+
+
+Q.7
+select * from member
+order by penalty_amount desc;
+
+Q.8
+update books
+set cost=300,category='RDBMS' where book_no=103;
+
+Q.9
+select * from books
+order by category ASC , cost desc;
+
+Q.10
+select * from books
+where book_name like "%sql%";
+
+Q.11
+select lib_issue_id,issue_date,return_date,
+datediff(return_date,issue_date) as "number of days issued"
+from lib_issue;
+
+Q.12
+select * from member
+order by acc_open_date;
+
+Q.13
+select count(book_no) from lib_issue
+where member_id=1;
+
+Q.14
+select member_id,penalty_amount
+from member;
+
+Q.15
+select count(member_id) from member;
+
+Q.16
+SELECT COUNT(*) AS total_books_issued
+FROM lib_issue;
+
+Q.17
+#non aggregated not work here without group by
+
+SELECT member_id, AVG(fees_paid) AS avg_fees
+FROM member
+GROUP BY member_id;
+
+select avg(fees_paid) from member;
+
+Q.18
+select category, count(book_name)
+from books
+group by category;
+
+Q.19
+select book_no,cost from books;
+
+
+Q.20
+select membership_type,max(penalty_amount), min(penalty_amount),count(penalty_amount),avg(penalty_amount)
+from member
+group by membership_type;
+
+Q.21
+
+Q.45
+
+
+Q.47
+select member_name,acc_open_date
+from member
+where fees_paid=1000;
+
+Q.48
+select book_name,author_name,cost
+from books
+where author_name='loni';
+
+
+Q.51
+select member_name,acc_open_date
+from member
+where year(acc_open_date)=2010;
+
+Q.52
+update member
+set penalty_amount=100
+where member_name='Garima sen';
+
+
